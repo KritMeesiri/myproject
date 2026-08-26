@@ -1,0 +1,78 @@
+/* Pastel purple UI inspired styles */
+body{font-family: Arial, Helvetica, sans-serif;background:#f7ecff;margin:0}
+.app {display:flex;min-height:100vh;}
+.sidebar {width:220px;background:#dbbbfb;padding:24px;box-sizing:border-box}
+.logo{font-weight:700;color:#ff8fb1;margin-bottom:18px}
+.nav a{display:block;padding:10px 28px;border-radius:8px;color:#6b2b6b;text-decoration:none;margin-bottom:8px}
+.nav a.active{background:#c192f3;color:white}
+.header{background:linear-gradient(90deg,#f6e6ff,#f0d9ff);padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.content{flex:1;padding:20px}
+.card{background:white;border-radius:12px;padding:14px;box-shadow:0 6px 0 rgba(179,148,200,0.12);margin-bottom:14px}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.table {width:100%;border-collapse:collapse}
+.table th,.table td{padding:8px;text-align:left;border-bottom:1px solid #eee}
+.table tr:hover{background:#faf0ff}
+.controls{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.btn.primary{background:#a76de6;color:white}
+.badge{display:inline-block;padding:6px 10px;border-radius:8px;background:#e8f8f0;color:#006644}
+.table-map{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.table-cell{padding:14px;border-radius:8px;text-align:center;background:#dff0e6}
+.status-available{background:#dff0e6}
+.status-pending{background:#fff3b0}
+.status-booked{background:#ffd6d6}
+.search{padding:8px;border-radius:12px;border:1px solid #e8d3f2;width:260px}
+.footer{height:28px;background:#cfa1f0;border-radius:12px;margin-top:16px}
+
+/* FullCalendar overrides to better fit theme */
+.fc .fc-toolbar-title { color:#6b2b6b; font-weight:700; }
+.fc .fc-daygrid-event { border-radius:6px; padding:4px 6px; color:#fff; }
+
+/* responsive tweaks */
+@media (max-width:900px) {
+  .sidebar{display:none}
+  .app{flex-direction:column}
+}
+/* ------- Seat layout styles ------- */
+.seating-stage { background: linear-gradient(90deg,#5f3bff,#9b4bff); color:#fff; padding:28px; border-radius:18px; text-align:center; font-weight:700; box-shadow:0 10px 30px rgba(90,40,160,0.12); }
+.seat-grid { display:grid; grid-template-columns: repeat(6, 1fr); gap:18px; align-items:stretch; }
+
+/* seat button base */
+.seat {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  user-select:none;
+  min-height:60px;
+}
+
+/* color variants */
+.seat.vip { background:#ffd84d; color:#3b2b00; box-shadow:0 8px 18px rgba(200,140,20,0.18); }
+.seat.sf  { background:#9b5bd6; }
+.seat.bar { background:#4ea0e6; }
+.seat.r   { background:#3aa36a; }
+
+/* state badges (for small label) */
+.seat small { font-size:12px; opacity:0.9; margin-top:6px; }
+
+/* layout helpers for center columns */
+.layout-2cols { display:flex; gap:24px; align-items:flex-start; }
+.left-col { width:380px; }
+.right-col { flex:1; }
+
+/* responsive */
+@media (max-width:980px) {
+  .seat-grid { grid-template-columns: repeat(3, 1fr); }
+  .layout-2cols { flex-direction:column; }
+  .left-col { width:100%; }
+}
+
+/* hover */
+.seat:hover { transform: translateY(-4px); transition: all .18s ease; }

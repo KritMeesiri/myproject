@@ -1,0 +1,88 @@
+-- ===============================================
+-- Database-Level Access Control (MySQL) - FIXED VERSION
+-- เพิ่มเติมสำหรับข้อ 4: Access Control & Roles
+-- ===============================================
+
+-- 1. สร้าง Database Users สำหรับแต่ละ Role
+-- ===============================================
+
+-- CUSTOMER Role - อ่านและเขียนข้อมูลของตัวเองเท่านั้น
+CREATE USER IF NOT EXISTS 'customer_user'@'localhost' IDENTIFIED BY 'customer_pass_2024!';
+
+-- STAFF Role - จัดการข้อมูลใน restaurant ที่ตนทำงาน
+CREATE USER IF NOT EXISTS 'staff_user'@'localhost' IDENTIFIED BY 'staff_pass_2024!';
+
+-- ADMIN Role - จัดการทุกอย่างในระบบ
+CREATE USER IF NOT EXISTS 'admin_user'@'localhost' IDENTIFIED BY 'admin_pass_2024!';
+
+-- 2. กำหนด Privileges สำหรับ CUSTOMER
+-- ===============================================
+-- อ่านได้: restaurants, areas, tables (เพื่อเลือกจอง)
+GRANT SELECT ON project.restaurant TO 'customer_user'@'localhost';
+GRANT SELECT ON project.area TO 'customer_user'@'localhost';
+GRANT SELECT, UPDATE ON project.`table` TO 'customer_user'@'localhost';
+GRANT SELECT ON project.policy TO 'customer_user'@'localhost';
+GRANT INSERT ON project.login_history TO 'customer_user'@'localhost';
+GRANT INSERT ON project.logout_history TO 'customer_user'@'localhost';
+
+-- อ่านและเขียนได้: reservation, payment (เฉพาะของตัวเอง - ต้องเช็คใน app)
+GRANT SELECT, INSERT, UPDATE ON project.reservation TO 'customer_user'@'localhost';
+GRANT SELECT, INSERT ON project.payment TO 'customer_user'@'localhost';
+GRANT EXECUTE ON PROCEDURE `project`.`cancel_reservation` TO 'customer_user'@'localhost';
+GRANT SELECT ON project.reservation_tables TO 'customer_user'@'localhost';
+
+-- อ่าน notification ของตัวเอง, อัพเดทสถานะอ่านแล้ว
+GRANT SELECT, UPDATE ON project.notification TO 'customer_user'@'localhost';
+
+-- อ่านและแก้ไข profile ของตัวเอง
+GRANT SELECT, INSERT, UPDATE ON project.user TO 'customer_user'@'localhost';
+
+-- ใช้ stored procedures ที่เกี่ยวข้อง
+GRANT EXECUTE ON PROCEDURE project.pay_and_hold TO 'customer_user'@'localhost';
+GRANT EXECUTE ON PROCEDURE project.cancel_reservation TO 'customer_user'@'localhost';
+
+GRANT SELECT ON project.staff TO 'customer_user'@'localhost';
+GRANT SELECT ON project.admin TO 'customer_user'@'localhost';
+
+-- 3. กำหนด Privileges สำหรับ STAFF
+-- ===============================================
+-- อ่านข้อมูล restaurant ที่ทำงาน
+GRANT SELECT ON project.restaurant TO 'staff_user'@'localhost';
+GRANT SELECT ON project.area TO 'staff_user'@'localhost';
+GRANT SELECT, UPDATE ON project.`table` TO 'staff_user'@'localhost';
+
+-- จัดการการจองและ check-in
+GRANT SELECT, UPDATE ON project.reservation TO 'staff_user'@'localhost';
+GRANT SELECT ON project.reservation_tables TO 'staff_user'@'localhost';
+GRANT SELECT, INSERT ON project.checkin TO 'staff_user'@'localhost';
+GRANT SELECT ON project.payment TO 'staff_user'@'localhost';
+
+-- อ่านข้อมูล customer
+GRANT SELECT ON project.user TO 'staff_user'@'localhost';
+
+-- ดูและอัพเดท staff profile ของตัวเอง
+GRANT SELECT, UPDATE ON project.staff TO 'staff_user'@'localhost';
+
+GRANT INSERT ON project.login_history TO 'staff_user'@'localhost';
+
+-- เพิ่มสิทธิ์ UPDATE is_active สำหรับ staff_user
+GRANT UPDATE (is_active) ON project.user TO 'staff_user'@'localhost';
+
+GRANT INSERT ON project.logout_history TO 'staff_user'@'localhost';
+
+GRANT EXECUTE ON PROCEDURE project.cancel_reservation TO 'staff_user'@'localhost';
+
+GRANT UPDATE (open_time, close_time) ON project.restaurant TO 'staff_user'@'localhost';
+
+-- 4. กำหนด Privileges สำหรับ ADMIN
+-- ===============================================
+-- ADMIN มีสิทธิ์ทุกอย่างในฐานข้อมูล project
+GRANT ALL PRIVILEGES ON project.* TO 'admin_user'@'localhost';
+
+-- สามารถจัดการ users อื่นๆ ได้
+GRANT CREATE USER, RELOAD, PROCESS ON *.* TO 'admin_user'@'localhost';
+
+
+-- 5. Apply changes
+-- ===============================================
+FLUSH PRIVILEGES;

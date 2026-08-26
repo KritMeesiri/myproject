@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//usr/local/include/oqs/**)",
+      "Read(//usr/include/**)",
+      "Bash(ls -la /opt/intel/sgxsdk 2>/dev/null || echo \"Intel SGX SDK not found at /opt/intel/sgxsdk\")",
+      "Read(//opt/intel/**)",
+      "Bash(find /home/vboxuser/somchart/sgxsdk -name \"*.h\" -path \"*/include/*\" | head -20)",
+      "Read(//home/vboxuser/somchart/sgxsdk/**)",
+      "Bash(ls /usr/include/oqs/ 2>/dev/null | head -30; ls /usr/local/include/oqs/ 2>/dev/null | head -30; find /usr -name \"liboqs*\" 2>/dev/null | head -10; ls /home/vboxuser/somchart/sgxsdk/SampleCode/SampleEnclave/Enclave/Enclave.h 2>/dev/null && cat /home/vboxuser/somchart/sgxsdk/SampleCode/SampleEnclave/Enclave/Enclave.h)",
+      "Read(//usr/**)"
+    ]
+  }
+}

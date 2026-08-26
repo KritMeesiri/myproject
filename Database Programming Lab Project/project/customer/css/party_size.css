@@ -1,0 +1,320 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.party-size-body {
+    background: #f5f5f5;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.party-size-header {
+    background: white;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+.party-size-logo {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Top Right Icons in Navbar */
+.top-icons-party {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-small {
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon-small:hover {
+    transform: scale(1.1);
+}
+
+.btn-logout-icon {
+    padding: 10px 28px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-logout-icon:hover {
+    background: #e63333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+/* Party Size Container */
+.party-size-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 50px 40px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.venue-logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.venue-logo-circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #4caf50;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.venue-name-party {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+/* Party Selector */
+.party-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.party-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    font-size: 48px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.party-minus {
+    background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+    color: white;
+}
+
+.party-minus:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+    transform: scale(1.05);
+}
+
+.party-minus:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.party-plus {
+    background: linear-gradient(135deg, #fdd835 0%, #fbc02d 100%);
+    color: #333;
+}
+
+.party-plus:hover:not(:disabled) {
+    background: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%);
+    transform: scale(1.05);
+}
+
+.party-plus:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.party-number {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 6px 20px rgba(41, 182, 246, 0.4);
+}
+
+/* Booking Details */
+.booking-details-box {
+    width: 100%;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 25px;
+    border: 2px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.details-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+}
+
+.detail-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.total-row {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px solid #333;
+}
+
+.price-highlight {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e53935;
+}
+
+/* Buttons */
+.btn-book-now {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #6496e8 0%, #9c27b0 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 20px rgba(100, 150, 232, 0.4);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.btn-book-now:hover {
+    background: linear-gradient(135deg, #5a87db 0%, #7b1fa2 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(100, 150, 232, 0.5);
+}
+
+.btn-back-party {
+    width: 100%;
+    padding: 15px;
+    background: white;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-back-party:hover {
+    background: #333;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .party-size-logo {
+        padding: 0 15px;
+    }
+    
+    .top-icons-party {
+        gap: 12px;
+    }
+    
+    .party-size-container {
+        margin: 20px 15px;
+        padding: 35px 25px;
+    }
+    
+    .venue-logo-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .venue-name-party {
+        font-size: 24px;
+    }
+    
+    .party-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 40px;
+    }
+    
+    .party-number {
+        width: 90px;
+        height: 90px;
+        font-size: 48px;
+    }
+    
+    .btn-book-now {
+        font-size: 20px;
+        padding: 18px;
+    }
+}

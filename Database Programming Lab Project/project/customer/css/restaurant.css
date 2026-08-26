@@ -1,0 +1,277 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+.venue-detail-body {
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.venue-top-section {
+    background: white;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #eee;
+}
+
+.venue-top-logo {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Top Right Icons in Navbar */
+.top-right-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-notif,
+.icon-calendar,
+.icon-user {
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon-notif:hover,
+.icon-calendar:hover,
+.icon-user:hover {
+    transform: scale(1.1);
+}
+
+.btn-logout-icon {
+    padding: 10px 28px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-logout-icon:hover {
+    background: #e63333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+/* Back Button Below Navbar */
+.back-button-section {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 30px;
+    display: flex;            /* เพิ่ม */
+    justify-content: center;  /* เพื่อให้ปุ่มอยู่กึ่งกลางในคอนเทนเนอร์ */
+}
+
+/* ปรับสไตล์ปุ่มให้เป็นกึ่งกลาง และขนาดคงที่ตามตัวอย่าง */
+.back-link-below {
+    display: inline-flex;        /* ใช้ inline-flex ให้ขนาดพอดีข้อความ/width ที่กำหนด */
+    justify-content: center;
+    align-items: center;
+
+    width: 90%;                  /* ถ้าอยากให้ยาวเป็นสัดส่วนหน้าจอ (ปรับได้) */
+    max-width: 600px;           /* ความกว้างสูงสุด — ปรับให้เหมาะกับดีไซน์ */
+   margin: 1px auto 20px;          /* กลางหน้า ด้วย auto */
+    padding: 18px 28px;          /* ปรับความสูงของปุ่ม */
+    
+    background: #ffffff;
+    color: #222;
+    border: 3px solid #333;     
+    border-radius: 50px;        /* มนมาก ๆ */
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06); /* เงาเบา */
+}
+
+
+.back-link-below:hover {
+    background: #fff;
+    border-color: #222;
+    transform: translateY(-2px);   /* เล็ก ๆ เพื่อความมีมิติ (ไม่เลื่อนซ้าย) */
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+/* ถ้าต้องการเวอร์ชันแบบกรอบบาง ๆ (เหมือนภาพสุดท้าย) */
+.back-link-below.thin {
+    border: 2px solid #444;
+    max-width: 1100px;
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* Venue Detail Container */
+.venue-detail-container {
+    max-width: 600px;
+    margin: 20px auto 20px;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.venue-detail-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.venue-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.venue-detail-info {
+    padding: 30px;
+}
+
+.venue-title-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.map-icon {
+    font-size: 32px;
+}
+
+.venue-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.venue-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.detail-line {
+    padding: 15px 18px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    border-left: 4px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.detail-line:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.detail-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #666;
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.status-open {
+    color: #4caf50;
+}
+
+.status-closed {
+    color: #f44336;
+}
+
+/* Action Button */
+.btn-next {
+    width: 100%;
+    padding: 16px;
+    background: #00d4aa;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-next:hover {
+    background: #00b89a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 212, 170, 0.5);
+}
+
+.btn-next:disabled {
+    background: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .venue-top-logo {
+        padding: 0 15px;
+    }
+    
+    .top-right-icons {
+        gap: 12px;
+    }
+    
+    .back-button-section {
+        padding: 0 15px;
+    }
+    
+    .venue-detail-container {
+        margin: 20px 15px 40px;
+    }
+    
+    .venue-detail-info {
+        padding: 20px;
+    }
+    
+    .venue-title {
+        font-size: 28px;
+    }
+    .back-link-below { 
+        width: 100%; 
+        max-width: 640px;
+        font-size: 16px; 
+        padding: 14px 20px; }
+
+    .detail-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

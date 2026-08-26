@@ -1,0 +1,269 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f6e9ff;
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #d9baf9;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h2 {
+  color: #5c2471;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100%;
+  padding: 10px 0 30px 0;
+  text-align: center;
+}
+
+.logo img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu a {
+  display: block;
+  color: #5c2471;
+  padding: 12px 20px;
+  text-decoration: none;
+  align-items: center;     /* จัดกึ่งกลางแนวตั้ง */
+  gap: 10px;  
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #c59ef5;
+}
+
+.menu a.active {
+  background-color: #b07cfd;
+  color : #FFF;
+}
+
+/* Header */
+.header {
+  background-color: #e3c8ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+}
+
+.header .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5c2471;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-weight: 600;
+  color: #5c2471;
+  font-size: 14px;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content h2 {
+  color: #5c2471;
+  margin-bottom: 15px;
+}
+
+/* Search Bar */
+.search-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.search-box form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 2px solid #d7b3f9;
+  width: 300px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #9a5ef5;
+}
+
+.search-box a {
+  color: #9a5ef5;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.search-box a:hover {
+  background-color: #f5d8ff;
+}
+
+/* Table Container */
+.table-section {
+  background-color: #f5d8ff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-section h3 {
+  margin-top: 0;
+  color: #5c2471;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #d29ef7;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+  background-color: #f7efff;
+}
+
+tr:hover {
+  background-color: #f0e5ff;
+  transition: background-color 0.2s ease;
+}
+
+td {
+  color: #5c2471;
+  font-size: 14px;
+}
+
+/* Role Badges */
+.role {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.role.admin { 
+  background-color: #ff6b6b;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+}
+
+.role.staff { 
+  background-color: #37d5d3;
+  background: linear-gradient(135deg, #37d5d3 0%, #2dbfbd 100%);
+}
+
+.role.customer { 
+  background-color: #db4b9d;
+  background: linear-gradient(135deg, #db4b9d 0%, #c43d8a 100%);
+}
+
+/* Avatar icons */
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Empty state styling */
+table td[colspan] {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9a5ef5;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+  
+  .search-box input {
+    width: 200px;
+  }
+  
+  table {
+    font-size: 13px;
+  }
+  
+  th, td {
+    padding: 10px;
+  }
+}
+

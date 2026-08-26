@@ -1,0 +1,463 @@
+/* Common Styles - ใช้ร่วมกันทุกหน้า */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f0f5 0%, #e8e8ed 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Dashboard/Navbar Styles */
+.booking-detail-body {
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: block;
+    padding-top: 40px; 
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-left .beer-icon-navbar {
+    margin-left: 10px;
+    order: 2;
+}
+
+.nav-left .brand-name-navbar {
+    order: 1;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notification-icon,
+.calendar-icon,
+.user-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.notification-icon:hover,
+.calendar-icon:hover,
+.user-icon:hover {
+    transform: scale(1.2);
+}
+
+.btn-logout-icon {
+    padding: 8px 20px;
+    background: #ff3232;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-logout-icon:hover {
+    background: #e02828;
+    transform: translateY(-2px);
+}
+
+.beer-icon-navbar {
+    height: 35px;
+    width: auto;
+}
+
+.brand-name-navbar {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #6496e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Back Button Below Navbar */
+.back-button-below-nav {
+    text-align: center;
+    margin-top: 8px;
+}
+.btn-back-below-nav {
+    width: 100%;
+    padding: 18px 20px;
+    background: white;
+    color: #333;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+.btn-back-below-nav:hover {
+    background: #333;
+    color: white;
+    border-color: #333;
+    transform: translateX(-3px);
+}
+
+.booking-detail-container {
+    max-width: 900px;
+    margin: 50px auto 40px;
+    padding: 0 30px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.status-confirmed {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.status-hold {
+    background: linear-gradient(135deg, #ffd54f 0%, #ffeb3b 100%);
+    color: #333;
+    box-shadow: 0 4px 15px rgba(255, 213, 79, 0.4);
+    font-weight: 700;
+}
+
+.status-pending {
+    background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.status-cancelled {
+    background: linear-gradient(135deg, #f44336 0%, #e57373 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.detail-section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.venue-section {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.venue-icon-large {
+    font-size: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.venue-name-large {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.booking-id-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+    margin: 0;
+}
+
+.datetime-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.datetime-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border: 2px solid #e0e0e0;
+}
+
+.datetime-icon {
+    font-size: 40px;
+}
+
+.datetime-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.datetime-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.datetime-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.info-section {
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.info-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.price-section {
+    background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+    border: 3px solid #ffd54f;
+    padding: 30px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.price-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #e65100;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.btn-detail-action {
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+.btn-cancel {
+    background: linear-gradient(135deg, #f44336 0%, #e57373 100%);
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: linear-gradient(135deg, #e53935 0%, #ef5350 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .booking-detail-container,
+    .back-button-below-nav {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-content {
+        padding: 0 15px;
+    }
+    
+    .back-button-below-nav {
+        padding: 75px 15px 15px;
+    }
+    
+    .btn-back-below-nav {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    
+    .booking-detail-container {
+        padding: 0 15px;
+    }
+    
+    .status-badge {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+    
+    .venue-section {
+        padding: 30px 20px;
+    }
+    
+    .venue-icon-large {
+        font-size: 64px;
+    }
+    
+    .venue-name-large {
+        font-size: 26px;
+    }
+    
+    .booking-id-text {
+        font-size: 14px;
+    }
+    
+    .datetime-section {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    
+    .datetime-card {
+        padding: 15px;
+    }
+    
+    .datetime-icon {
+        font-size: 36px;
+    }
+    
+    .datetime-value {
+        font-size: 16px;
+    }
+    
+    .info-section {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .info-item {
+        padding: 12px;
+    }
+    
+    .info-value {
+        font-size: 16px;
+    }
+    
+    .price-section {
+        padding: 25px 20px;
+    }
+    
+    .price-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .price-label {
+        font-size: 20px;
+    }
+    
+    .price-value {
+        font-size: 30px;
+    }
+    
+    .action-buttons {
+        margin-top: 10px;
+    }
+    
+    .btn-detail-action {
+        padding: 15px 50px;
+        font-size: 16px;
+    }
+}

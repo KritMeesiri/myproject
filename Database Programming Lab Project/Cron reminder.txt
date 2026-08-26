@@ -1,0 +1,10 @@
+In this project, I use Task Scheduler (RunAllCrons_Every5Min.xml) to run a .bat file every 5 minutes (inside the cron folder).
+This batch file triggers several PHP scripts that perform background operations, such as:
+	- Releasing expired HOLD reservations and returning the tables to AVAILABLE (release_expired_holds.php)
+	- Resetting table statuses one hour after the restaurant closes (reset_tables_hourly.php)
+	- Sending notification reminders to customers when their reservation is about to expire (send_deadline_warnings.php)
+All of these tasks run automatically even when the website is not open,
+because they are system-level background processes that should always run without requiring any user to be online.
+
+In summary, Task Scheduler allows the system to run continuously and automatically,
+acting as the Windows equivalent of a Cron Job.

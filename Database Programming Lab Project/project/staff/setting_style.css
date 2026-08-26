@@ -1,0 +1,286 @@
+/* Settings Styles - Save as: settings_styles.css (in root folder) */
+
+.settings-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Card Enhancement */
+.settings-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(167, 109, 230, 0.15);
+    transition: all 0.3s ease;
+}
+
+.settings-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(167, 109, 230, 0.2);
+}
+
+/* Header Styles */
+.settings-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0e6ff;
+}
+
+.settings-header h3 {
+    margin: 0 0 8px 0;
+    color: #6b2b6b;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.settings-subtitle {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Form Styles */
+.settings-form {
+    margin-top: 20px;
+}
+
+/* Time Inputs Container */
+.time-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Enhanced Time Input */
+.time-input {
+    padding: 12px 16px 12px 44px;
+    border: 2px solid #e8d3f2;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: white url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23a76de6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>') no-repeat 12px center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+.time-input:hover {
+    border-color: #d4b3ff;
+    box-shadow: 0 2px 12px rgba(167, 109, 230, 0.15);
+}
+
+.time-input:focus {
+    outline: none;
+    border-color: #a76de6;
+    box-shadow: 0 0 0 4px rgba(167, 109, 230, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Payment Options */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* Custom Checkbox Style */
+.payment-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 2px solid #e8d3f2;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.payment-checkbox:hover {
+    border-color: #a76de6;
+    background: #faf0ff;
+    transform: translateX(4px);
+}
+
+.payment-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom Checkmark */
+.checkmark {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e8d3f2;
+    border-radius: 6px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.payment-checkbox input[type="checkbox"]:checked ~ .checkmark {
+    background: linear-gradient(135deg, #5dcb61 0%, #4bb650 100%);
+    border-color: #4caf50;
+}
+
+.payment-checkbox input[type="checkbox"]:checked ~ .checkmark::after {
+    content: '✓';
+    color: white;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.payment-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Enhanced Save Button */
+.btn-save {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: linear-gradient(135deg, #5ace5e 0%, #48c04e 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-save::before {
+    content: '✓';
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.btn-save::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-save:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-save:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.5);
+}
+
+.btn-save:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn-save:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Success Message */
+.success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.4);
+    font-weight: 600;
+    font-size: 15px;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.success-message.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.success-message::before {
+    content: '✓';
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 0;
+    }
+    
+    .settings-card {
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .time-inputs {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .settings-header h3 {
+        font-size: 20px;
+    }
+    
+    .btn-save {
+        width: 100%;
+    }
+    
+    .success-message {
+        left: 10px;
+        right: 10px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .time-input {
+        font-size: 14px;
+        padding-left: 40px;
+    }
+    
+    .payment-checkbox {
+        padding: 12px;
+    }
+}

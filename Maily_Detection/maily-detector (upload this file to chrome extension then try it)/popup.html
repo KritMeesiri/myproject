@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maily Detector</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 340px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    .header {
+      background: #1a1a2e;
+      padding: 18px 20px 16px;
+    }
+    .header-sub {
+      font-size: 11px;
+      color: #8888aa;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .header-title {
+      font-size: 19px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .btn-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #scanBtn {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #3B6D11;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    #scanBtn:hover { background: #27500A; }
+    #scanBtn:active { transform: scale(0.96); }
+    #scanBtn:disabled { background: #6a9a4a; cursor: not-allowed; }
+
+    #btnLabel {
+      font-size: 12px;
+      font-weight: 500;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .spinner {
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .result-area {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card {
+      border: 0.5px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 9px 14px;
+      background: #f7f7f7;
+      border-bottom: 0.5px solid #e0e0e0;
+    }
+    .card-header p {
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Status card body — label + bar together */
+    .status-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #statusDot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #ccc;
+    }
+
+    #statusLabel {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .conf-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .conf-track {
+      flex: 1;
+      height: 6px;
+      border-radius: 3px;
+      background: #ebebeb;
+      overflow: hidden;
+    }
+    #confBar {
+      height: 100%;
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.6s ease;
+    }
+    #confPct {
+      font-size: 13px;
+      font-weight: 500;
+      color: #1a1a1a;
+      min-width: 38px;
+      text-align: right;
+    }
+
+    /* Detail card */
+    .detail-body { padding: 14px; }
+
+    .detail-reason {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .step-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #185FA5;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      background: #185FA5;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .step-text {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    /* Warning */
+    .warn-card {
+      border: 0.5px solid #f0c060;
+      border-radius: 12px;
+      background: #fffbf0;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #7a5c00;
+      line-height: 1.5;
+      display: none;
+    }
+
+    /* Error */
+    .error-card {
+      border: 0.5px solid #f5c0c0;
+      border-radius: 12px;
+      background: #fff5f5;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #8a1a1a;
+      line-height: 1.5;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <p class="header-sub">Chrome Extension</p>
+    <p class="header-title">Maily Detector</p>
+  </div>
+
+  <div class="body">
+
+    <div class="btn-area">
+      <button id="scanBtn">
+        <svg id="btnIcon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2"/>
+          <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span id="btnLabel">Scan</span>
+      </button>
+      <p class="hint" id="hint">Open an email in Gmail,<br>then press Scan.</p>
+    </div>
+
+    <div class="warn-card" id="warnCard"></div>
+    <div class="error-card" id="errorCard"></div>
+
+    <div class="result-area" id="resultArea">
+
+      <!-- Status + % bar in same card -->
+      <div class="card">
+        <div class="card-header"><p>Status</p></div>
+        <div class="status-body">
+          <div class="status-row">
+            <div id="statusDot"></div>
+            <span id="statusLabel"></span>
+          </div>
+          <div class="conf-row">
+            <div class="conf-track">
+              <div id="confBar"></div>
+            </div>
+            <span id="confPct"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail card (reason only) -->
+      <div class="card">
+        <div class="card-header"><p>Detail</p></div>
+        <div class="detail-body">
+          <p id="detailText"></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

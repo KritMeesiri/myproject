@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Maily Detector",
+  "version": "1.0",
+  "description": "Scan emails in Gmail to detect SPAM, NOT SPAM, or SUBSCRIPTION using AI.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://*.hf.space/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Maily Detector"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
